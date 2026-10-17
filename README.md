@@ -2,7 +2,7 @@
 
 A desktop application for running background music during tabletop RPG sessions. Organize your music library into **encounters** (Tavern, Forest, Boss Fight, etc.), queue up the next encounter, and crossfade between them with a single click—all while managing your table.
 
-For **Windows** (x64). A Linux build will follow.
+For **Windows** (x64) and **Linux** (x86_64).
 
 This repository holds the downloads and the user guide; the source code is kept separately.
 
@@ -45,7 +45,9 @@ instead, unpack it anywhere, and run `TabletopMusicDirector.exe`. Keep the
 The app and installer are not code-signed, so Windows SmartScreen may say
 *"Windows protected your PC"* the first time; choose **More info → Run anyway**.
 
-**Linux:** not released yet.
+**Linux (x86_64):** Download `TabletopMusicDirector.x86_64` from the
+[Releases page](https://github.com/cclapham/TabletopMusicDirector/releases),
+make it executable (`chmod +x TabletopMusicDirector.x86_64`), and run it.
 
 ## Supported Audio Formats
 
@@ -211,6 +213,7 @@ app's data folder:
 | Platform | Folder |
 |----------|--------|
 | Windows | `%APPDATA%\TabletopMusicDirector\` |
+| Linux | `~/.local/share/TabletopMusicDirector/` |
 
 The file is plain, indented JSON, so it can be backed up or copied between
 machines. Tracks inside the music folder are saved relative to it, so copy the
