@@ -248,5 +248,8 @@ just before the problem.
 
 ## License
 
-Not yet chosen. Until a license is added, no rights are granted beyond
-downloading and running the app.
+Copyright (c) 2026 Chris Clapham. All rights reserved.
+
+The official releases may be downloaded, installed and used free of charge.
+Copying, modifying or redistributing the app needs written permission. See
+[LICENSE](LICENSE) for the full terms.

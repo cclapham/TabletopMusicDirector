@@ -1,0 +1,23 @@
+Copyright (c) 2026 Chris Clapham. All rights reserved.
+
+Tabletop Music Director ("the Software"), including its source code, is the
+property of Chris Clapham.
+
+You may download, install and use the official releases of the Software,
+published at https://github.com/cclapham/TabletopMusicDirector/releases or
+through an official store listing, free of charge and for any purpose.
+
+No other rights are granted. In particular, you may not copy, modify,
+distribute, sublicense or sell the Software or its source code, in whole or
+in part, without prior written permission from the copyright holder.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The Software is built with the Godot Engine and runs on .NET. Those
+components are licensed separately under their own terms, which this
+licence does not change.
