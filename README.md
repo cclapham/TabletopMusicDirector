@@ -17,7 +17,7 @@ This repository holds the downloads and the user guide; the source code is kept 
 - **Per-encounter Transitions**: Let a Boss Fight slam in while a Forest drifts in slowly
 - **Fade-out Stop**: Music fades out gracefully—no abrupt cuts
 - **Pause, Skip and Restart**: Hold the music mid-track, jump to the next track, or start an encounter over
-- **Keyboard Shortcuts**: Fast control mid-session (`Space` to transition, `Esc` to stop, `1–9` to queue)
+- **Keyboard Shortcuts**: Fast control mid-session (`Space` to transition, `Esc` to stop, `1–9` to queue), and every control can be given a key of your choice
 - **Shuffle**: Optional per-encounter shuffle, reshuffled on every loop and never repeating the track that just played
 - **Persistence**: Your encounter library and settings are saved after every change
 - **Master Volume Control**: Balance music against voices at the table
@@ -45,9 +45,12 @@ instead, unpack it anywhere, and run `TabletopMusicDirector.exe`. Keep the
 The app and installer are not code-signed, so Windows SmartScreen may say
 *"Windows protected your PC"* the first time; choose **More info → Run anyway**.
 
-**Linux (x86_64):** Download `TabletopMusicDirector.x86_64` from the
-[Releases page](https://github.com/cclapham/TabletopMusicDirector/releases),
-make it executable (`chmod +x TabletopMusicDirector.x86_64`), and run it.
+**Linux (x86_64):** unpack the archive anywhere and run
+`./TabletopMusicDirector.x86_64`. Keep the executable and the
+`data_RPGMusicPlayer_linuxbsd_x86_64` folder beside it together: the folder holds
+the .NET runtime the app runs on. If your archive tool did
+not keep the executable bit, restore it first with
+`chmod +x TabletopMusicDirector.x86_64`.
 
 ## Supported Audio Formats
 
@@ -130,6 +133,8 @@ updates what the next transition plays.
 
 ### Keyboard Shortcuts
 
+The defaults:
+
 | Key | Action |
 |-----|--------|
 | `Space` | Transition to queued encounter |
@@ -138,20 +143,32 @@ updates what the next transition plays.
 | `Esc` (again, while fading out) | Stop at once |
 | `1–9` | Queue encounter 1–9, counting down the encounter list |
 
-`1–9` work from the number row on any keyboard layout (they go by key position, so
-AZERTY works unshifted) and from the numeric keypad. A shortcut does exactly what
-its button does, and nothing when its button is disabled. Shortcuts stand aside
-while you are typing a name or a dialog is open, so Space types a space and Esc
-closes the dialog. Space always means Transition — it does not press whichever
-button you last clicked (Enter still does).
+**Changing them:** open the settings panel and press **Shortcuts…**. Every
+control can have a key: Transition, Fade Out, Stop Now, Pause/Resume, Skip,
+Restart, Play Now and Queue (for the selected encounter), and Queue encounter
+1–9. Click an action's key, then press the new one, on its own or with Shift.
+Ctrl, Alt and Cmd combinations are left for the system. A key another action
+already uses moves to the new one, and the dialog tells you which action lost
+it. **✕** removes a shortcut, and **Reset to defaults** puts them all back.
+Changes take effect at once, are saved with your other settings, and show on
+the buttons, so a button's caption always names the key that works.
+
+Keys go by position on the keyboard, so a shortcut keeps working if you switch
+layout (on AZERTY, `1–9` work unshifted), and a digit also works from the
+numeric keypad. A shortcut does exactly what its button does, and nothing when
+its button is disabled. Shortcuts stand aside while you are typing a name or a
+dialog is open, so Space types a space and Esc closes the dialog. A key bound to
+an action always means that action: Space does not press whichever button you
+last clicked (Enter still does, unless you bind it).
 
 ### Settings
 
 ![The settings panel open over the encounter library](docs/screenshots/settings.png)
 
 Press the **☰** button at the top left to open the settings panel over the
-encounter library, and again to close it. Changes take effect at once and are
-saved with the library. The playback controls stay uncovered while it is open.
+encounter library, and again to close it, or click or tap anywhere outside the
+panel. Changes take effect at once and are saved with the library. The playback
+controls stay uncovered while it is open.
 
 - **Transition**: how long the crossfade between encounters takes (default 5 s)
 - **Fade out**: how long Fade Out takes to reach silence (default 4 s)
@@ -159,6 +176,11 @@ saved with the library. The playback controls stay uncovered while it is open.
   Pause (default Equal power)
 - **Master volume**: how loud the music is, 0–100 % (default 100 %)
 - **Music folder**: where you keep your music — see below. **Choose…** changes it.
+- **Language**: the language the app shows. Each is listed by its own name:
+  English, Deutsch, Français, Español, Português (Brasil), Português (Portugal), Italiano, Polski, 日本語, 简体中文, 繁體中文, 한국어, Русский.
+  **System default** (the default) follows your system's language when the app
+  has it, and English otherwise. A change takes effect the next time the app
+  starts.
 
 The durations range from 0.5 s to 30 s in 0.5 s steps; drag a slider, or click
 it and use the arrow keys. A fade already running keeps the length it started
@@ -213,7 +235,7 @@ app's data folder:
 | Platform | Folder |
 |----------|--------|
 | Windows | `%APPDATA%\TabletopMusicDirector\` |
-| Linux | `~/.local/share/TabletopMusicDirector/` |
+| Linux | `~/.local/share/TabletopMusicDirector/` (or `$XDG_DATA_HOME/TabletopMusicDirector/`) |
 
 The file is plain, indented JSON, so it can be backed up or copied between
 machines. Tracks inside the music folder are saved relative to it, so copy the
@@ -235,9 +257,11 @@ cannot be read at startup it is never overwritten:
 At startup every track is checked, and any whose file has moved or been deleted
 is **marked in red** — in the encounter list with a count (`· 2 missing`), and in
 the track list as `missing` — with a summary in the status line. Missing tracks
-are skipped during playback rather than stopping it. Each file is checked once per
-session, so a file that comes back (a drive plugged back in) clears its mark the
-next time the app starts.
+are skipped during playback rather than stopping it. Each file is checked once and
+the answer remembered, because on a disconnected network drive every check can
+take seconds. While any track is missing, the title bar shows how many, with a
+**Re-check files** button: press it after plugging a drive back in, and every
+track is checked again in the background, with the result in the status line.
 
 ## Reporting problems
 
