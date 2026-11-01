@@ -179,8 +179,8 @@ controls stay uncovered while it is open.
 - **Language**: the language the app shows. Each is listed by its own name:
   English, Deutsch, Français, Español, Português (Brasil), Português (Portugal), Italiano, Polski, 日本語, 简体中文, 繁體中文, 한국어, Русский.
   **System default** (the default) follows your system's language when the app
-  has it, and English otherwise. A change takes effect the next time the app
-  starts.
+  has it, and English otherwise. A change takes effect at once, without
+  interrupting the music.
 
 The durations range from 0.5 s to 30 s in 0.5 s steps; drag a slider, or click
 it and use the arrow keys. A fade already running keeps the length it started
@@ -235,6 +235,7 @@ app's data folder:
 | Platform | Folder |
 |----------|--------|
 | Windows | `%APPDATA%\TabletopMusicDirector\` |
+| Windows, Microsoft Store version | `%LOCALAPPDATA%\Packages\CClaphamSoftware.TabletopMusicDirector_y3e0qcz0xrd1t\LocalCache\Roaming\TabletopMusicDirector\` (Windows keeps it apart from the installer version's, and deletes it when the app is uninstalled) |
 | Linux | `~/.local/share/TabletopMusicDirector/` (or `$XDG_DATA_HOME/TabletopMusicDirector/`) |
 
 The file is plain, indented JSON, so it can be backed up or copied between
