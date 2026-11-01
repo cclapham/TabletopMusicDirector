@@ -28,6 +28,10 @@ Downloads are on the
 [Releases page](https://github.com/cclapham/TabletopMusicDirector/releases). Nothing
 else needs installing — the .NET runtime is bundled.
 
+On Windows you can also get it from the
+[Microsoft Store](https://apps.microsoft.com/detail/9P9C80MFJB1T), which keeps it
+up to date for you.
+
 **Windows (x64):** the simplest way is the installer,
 `TabletopMusicDirector-<version>-windows-x64-setup.exe`.
 
